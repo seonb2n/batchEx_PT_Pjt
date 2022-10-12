@@ -52,7 +52,6 @@ public class PackageRepositoryTest {
         packageRepository.save(packageEntity2);
 
         //when
-
         var result = packageRepository.findByCreatedAtAfter(dateTime,
                 PageRequest.of(0, 1, Sort.by("packageSeq").descending()));
 
