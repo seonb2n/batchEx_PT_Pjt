@@ -22,7 +22,23 @@ CREATE TABLE `pass`
     `created_at`      timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '생성 일시',
     `modified_at`     timestamp            DEFAULT NULL COMMENT '수정 일시',
     PRIMARY KEY (`pass_seq`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='이용권';
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT ='이용권';
+
+CREATE TABLE `bulk_pass`
+(
+    `bulk_pass_seq` int         NOT NULL AUTO_INCREMENT COMMENT '대량 이용권 순번',
+    `package_seq`   int         NOT NULL COMMENT '패키지 순번',
+    `user_group_id` varchar(20) NOT NULL COMMENT '사용자 그룹 ID',
+    `status`        varchar(10) NOT NULL COMMENT '상태',
+    `count`         int                  DEFAULT NULL COMMENT '이용권 수, NULL인 경우 무제한',
+    `started_at`    timestamp   NOT NULL COMMENT '시작 일시',
+    `ended_at`      timestamp            DEFAULT NULL COMMENT '종료 일시, NULL인 경우 무제한',
+    `created_at`    timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '생성 일시',
+    `modified_at`   timestamp            DEFAULT NULL COMMENT '수정 일시',
+    PRIMARY KEY (`bulk_pass_seq`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT ='대량 이용권, 다수의 이용자에게 이용권을 지급하기 위함';
 
 CREATE TABLE `booking`
 (
@@ -30,8 +46,8 @@ CREATE TABLE `booking`
     `pass_seq`     int         NOT NULL COMMENT '이용권 순번',
     `user_id`      varchar(20) NOT NULL COMMENT '사용자 ID',
     `status`       varchar(10) NOT NULL COMMENT '상태',
-    `used_pass`    tinyint(1) NOT NULL DEFAULT '0' COMMENT '이용권 사용 여부',
-    `attended`     tinyint(1) NOT NULL DEFAULT '0' COMMENT '출석 여부',
+    `used_pass`    tinyint(1)  NOT NULL DEFAULT '0' COMMENT '이용권 사용 여부',
+    `attended`     tinyint(1)  NOT NULL DEFAULT '0' COMMENT '출석 여부',
     `started_at`   timestamp   NOT NULL COMMENT '시작 일시',
     `ended_at`     timestamp   NOT NULL COMMENT '종료 일시',
     `cancelled_at` timestamp            DEFAULT NULL COMMENT '취소 일시',
@@ -50,4 +66,17 @@ CREATE TABLE `user`
     `created_at`  timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '생성 일시',
     `modified_at` timestamp            DEFAULT NULL COMMENT '수정 일시',
     PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='사용자';
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT ='사용자';
+
+CREATE TABLE `user_group_mapping`
+(
+    `user_group_id`   varchar(20) NOT NULL COMMENT '사용자 그룹 ID',
+    `user_id`         varchar(20) NOT NULL COMMENT '사용자 ID',
+    `user_group_name` varchar(50) NOT NULL COMMENT '사용자 그룹 이름',
+    `description`     varchar(50) NOT NULL COMMENT '설명',
+    `created_at`      timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '생성 일시',
+    `modified_at`     timestamp            DEFAULT NULL COMMENT '수정 일시',
+    PRIMARY KEY (`user_group_id`, `user_id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT ='사용자 그룹 매핑';

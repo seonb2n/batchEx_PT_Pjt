@@ -3,7 +3,7 @@ package com.example.batchpjt.job.pass;
 import com.example.batchpjt.TestBatchConfig;
 import com.example.batchpjt.domain.pass.PassEntity;
 import com.example.batchpjt.domain.pass.PassStatus;
-import com.example.batchpjt.repository.pass.PassRepositroy;
+import com.example.batchpjt.repository.pass.PassRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -35,7 +35,7 @@ class ExpirePassesJobConfigTest {
     private JobLauncherTestUtils jobLauncherTestUtils;
 
     @Autowired
-    private PassRepositroy passRepositroy;
+    private PassRepository passRepositroy;
 
     @DisplayName("기간 만료 Batch 테스트")
     @Test
