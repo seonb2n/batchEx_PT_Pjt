@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaAuditing
 @EnableAutoConfiguration
 @EnableBatchProcessing
-@EntityScan("com.example.batchpjt.domain.pass")
-@EnableJpaRepositories("com.example.batchpjt.repository.pass")
+@EntityScan("com.example.batchpjt.domain")
+@EnableJpaRepositories("com.example.batchpjt.repository")
 @EnableTransactionManagement
 public class TestBatchConfig {
 }
