@@ -7,7 +7,7 @@ VALUES ('Starter PT 10회', 10, 60, '2022-08-01 00:00:00'),
        ('바디 챌린지 PT 8주', NULL, 48, '2022-08-01 00:00:00'),
        ('인바디 상담', NULL, NULL, '2022-08-01 00:00:00');
 
-INSERT INTO `user` (user_id, user_name, status, phone, meta, created_at)
+INSERT INTO `userEntity` (user_id, user_name, status, phone, meta, created_at)
 VALUES ('A1000000', '우영우', 'ACTIVE', '01011112222', NULL, '2022-08-01 00:00:00'),
        ('A1000001', '최수연', 'ACTIVE', '01033334444', NULL, '2022-08-01 00:00:00'),
        ('A1000002', '이준호', 'INACTIVE', '01055556666', NULL, '2022-08-01 00:00:00'),

@@ -14,6 +14,9 @@ spring:
     properties:
       hibernate:
         format_sql: false  # 아름답게 출력
+    hibernate:
+      ddl-auto: create-drop
+
   batch:
     jdbc:
       # Batch에 사용되는 SQL 초기화 스크립트를 실행합니다. 임베디드인 경우에는 기본적으로 실행하는데, always 설정을 하면 임베디드 타입처럼 항상 활성화시킬 수 있습니다.

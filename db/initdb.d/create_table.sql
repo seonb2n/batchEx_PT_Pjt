@@ -60,7 +60,7 @@ CREATE TABLE `booking`
     PRIMARY KEY (`booking_seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='예약';
 
-CREATE TABLE `user`
+CREATE TABLE `userEntity`
 (
     `user_id`     varchar(20) NOT NULL COMMENT '사용자 ID',
     `user_name`   varchar(50) NOT NULL COMMENT '사용자 이름',

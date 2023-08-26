@@ -23,6 +23,7 @@ import org.springframework.batch.test.JobLauncherTestUtils;
 import org.springframework.batch.test.context.SpringBatchTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -30,6 +31,7 @@ import org.springframework.test.context.ContextConfiguration;
 @SpringBatchTest
 @SpringBootTest
 @ActiveProfiles("test")
+@Import(SendNotificationItemWriter.class)
 @ContextConfiguration(classes = {SendNotificationBeforeClassJobConfig.class, TestBatchConfig.class})
 public class SendNotificationBeforeClassJobConfigTest {
 

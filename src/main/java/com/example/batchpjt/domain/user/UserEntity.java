@@ -1,7 +1,7 @@
 package com.example.batchpjt.domain.user;
 
 import com.example.batchpjt.domain.BaseEntity;
-import com.vladmihalcea.hibernate.type.json.JsonType;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import java.util.Map;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -18,9 +18,9 @@ import org.hibernate.annotations.TypeDef;
 @Setter
 @ToString
 @Entity
-@Table(name = "user")
+@Table(name = "userEntity")
 // json의 타입을 정의합니다.
-@TypeDef(name = "json", typeClass = JsonType.class)
+@TypeDef(name = "json", typeClass = JsonStringType.class)
 public class UserEntity extends BaseEntity {
     @Id
     private String userId;
